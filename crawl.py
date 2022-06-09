@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 
 import time
 
-url = "https://www.iucnredlist.org/species/153538/4516675"
+url = "https://www.iucnredlist.org/species/41671/45231087"
 
 # download chromedrive: https://chromedriver.chromium.org/downloads
 driver = webdriver.Chrome("./chromedriver")
@@ -14,7 +14,7 @@ driver = webdriver.Chrome("./chromedriver")
 driver.get(url)
 
 # sleep for 3 secs to make sure the page is loaded completely
-time.sleep(1)
+time.sleep(3)
 
 html = driver.page_source
 
@@ -25,7 +25,7 @@ soup = BeautifulSoup(html, "html.parser")
 result = soup.find("div", {"id": "threats-details"})
 
 # write the result to ./result.txt
-with open("result.txt", "w") as f:
+with open("result.txt", "w", encoding='utf-8') as f:
     f.write(result.prettify())
 
 
